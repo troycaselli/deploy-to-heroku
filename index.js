@@ -9,6 +9,10 @@
 
     // ::::::::::::::::::::::::::::
 
+// looks for file .env
+// add this line as the first thing to run
+require('dotenv').config();
+
 const express = require('express');
 
 const server = express();
@@ -20,7 +24,9 @@ server.get('/hello', (req, res) => {
 })
 
 // when deploying on heroku, use its environment port, otherwise 9000
-const PORT = process.env.PORT  || 9000
+    // You can deploy to heroku by connecting heroku account to github OR by using the heroku cli commands
+    // PORT declared in .env file
+const PORT = process.env.PORT || 9000;
 
 server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
